@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       dictionary;
+    location    "system";
+    object      fieldAverageDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+functions
+{
+    fieldAverage1
+    {
+        type                fieldAverage;
+        libs                ("libfieldFunctionObjects.so");
+        enabled             true;
+        writeControl        timeStep;
+        writeInterval       1;
+
+        fields
+        (
+            alpha1
+            {
+                base        time;   // Required in OF2406: time-averaging
+                mean        yes;
+                prime2Mean  no;
+            }
+        );
+    }
+}
+
+
+functions
+{
+    volumeIntegrateAlpha
+    {
+        type            volumeIntegrate;
+        functionObjectLibs ("libfieldFunctionObjects.so");
+        field           alpha1;
+        log             yes;
+    }
+}
+

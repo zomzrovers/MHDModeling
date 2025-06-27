@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//rho             rho [1 -3 0 0 0 0 0] 776.6;
+rho              776.6;
+
+//liquid phase
+//cpl             cpl [0 2 -2 -1 0 0 0] 2100;
+cpl             2100;
+//lambdal         lambdal [1 1 -3 -1 0 0 0] 0.14;
+lambdal         0.14;
+//nu              nu [0 2 -1 0 0 0 0] 5.72e-06;
+nu              5.72e-06;
+
+mu              4.44e-03;
+
+
+//solid phase
+//cps             cps [0 2 -2 -1 0 0 0] 5000;
+cps             5000;
+//lambdas         lambdas [1 1 -3 -1 0 0 0] 0.45;
+lambdas         0.45;
+//beta            beta [0 0 0 -1 0 0 0] 8.65e-4;
+beta            8.65e-4;
+
+//Ts              Ts [0 0 0 1 0 0 0] 307.25;
+Ts              307.25;
+//Tl              Tl [0 0 0 1 0 0 0] 308.45;
+Tl              308.45;
+//L               L [0 2 -2 0 0 0 0] 222000;
+L               222000;
+//DCl             DCl [1 -3 -1 0 0 0 0] 1.0e8;
+DCl             1.0e8; 
+//DCs             DCs [0 0 0 0 0 0 0] 1e-06;
+DCs             1e-06;
+
+
+// Magnetic 
+sigma			1;
+
+// ************************************************************************* //
